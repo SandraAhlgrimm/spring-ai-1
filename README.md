@@ -15,18 +15,18 @@ As Ollama doesn't yet provide a text-to-image model, recipe image generation is 
 By enabling the "ollama-compose" Spring profile, the llama3 model will be automatically started and configured with docker compose.
 Depending on your system (e.g. ARM macs) this is not a recommended setup due to performance reasons.
 ```
-export SPRING_PROFILES_ACTIVE=ollama-compose
+export SPRING_PROFILES_ACTIVE=ollama-compose;
 ```
 ### OpenAI (TODO)
 ### Azure OpenAI
 Set the API key and endpoint via environment variables or in [application.yaml](src/main/resources/application.yaml).
 ```
-export SPRING_AI_AZURE_OPENAI_API_KEY=<INSERT KEY HERE>
-export SPRING_AI_AZURE_OPENAI_ENDPOINT=<INSERT ENDPOINT URL HERE>
+export SPRING_AI_AZURE_OPENAI_API_KEY=<INSERT KEY HERE>;
+export SPRING_AI_AZURE_OPENAI_ENDPOINT=<INSERT ENDPOINT URL HERE>;
 ```
 Run your application with the "azure" Spring Profile.
 ```
-export SPRING_PROFILES_ACTIVE=azure
+export SPRING_PROFILES_ACTIVE=azure;
 ```
 ### Vector DB
 On your local machine, a Redis database is automatically started and configured with docker compose.
@@ -48,5 +48,5 @@ By checking the "Prefer own recipes" checkbox, [Retrieval-Augmented Generation](
 
 To upload your own PDF documents for recipes to the vector database, there is a REST API endpoint implemented. 
 ```
-curl -XPOST -F "file=@$HOME/my-recipe.pdf" http://localhost:8080/api/v1/recipes/upload
+curl -XPOST -F "file=@workspaces/spring-ai/my-recipe.pdf" http://localhost:8080/api/v1/recipes/upload
 ```
